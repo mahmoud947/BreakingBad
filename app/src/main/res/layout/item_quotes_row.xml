@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/black_bord">
+
+            <TextView
+                android:id="@+id/tv_item_quote_quotes"
+                android:layout_width="263dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="32dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Funyuns are awesome"
+                android:textColor="#CBCBCB"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_item_author_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:text="author: "
+                android:textColor="@color/green"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_item_author_qoutes"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_item_author_qoutes"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:maxLines="1"
+                android:text="Jesse Pinkman"
+                android:textColor="#CBCBCB"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_author_label" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/walter_logo" />
+    </RelativeLayout>
+
+</LinearLayout>

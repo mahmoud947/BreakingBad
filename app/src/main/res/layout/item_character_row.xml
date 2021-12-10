@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="280dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@drawable/character_rec"
+            android:cropToPadding="true"
+            android:padding="2dp"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/characters_gradient" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item_char_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="username"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_item_char_nic_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:drawableStart="@drawable/ic_baseline_star_24"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="nicname"
+                android:textColor="@color/white"
+
+                android:textSize="12sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

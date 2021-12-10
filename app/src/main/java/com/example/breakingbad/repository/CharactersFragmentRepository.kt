@@ -10,7 +10,7 @@ class CharactersFragmentRepository @Inject constructor(
     suspend fun getAllCharacters() =
         breakingBadApi.getAllCharacters()
 
-    suspend fun getCharacterById(charID: Int) =
+     suspend fun getCharacterById(charID: Int) =
         breakingBadApi.getCharacterById(charID)
 
     suspend fun getAllQuote() =

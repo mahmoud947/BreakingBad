@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     android:label="Characters"
-    app:startDestination="@id/charactersFragment">
+    app:startDestination="@id/charactersFragment"
+    maintainBackstack="true">
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.example.breakingbad.ui.fragment.characters.CharactersFragment"
@@ -20,11 +21,6 @@
         android:label="Quotes"
         tools:layout="@layout/fragment_quotes" />
     <fragment
-        android:id="@+id/episodesFragment"
-        android:name="com.example.breakingbad.episodes"
-        android:label="fragment_episodes"
-        tools:layout="@layout/fragment_episodes" />
-    <fragment
         android:id="@+id/characterInfoFragment"
         android:name="com.example.breakingbad.ui.fragment.character_info.CharacterInfoFragment"
         android:label="{char_name}"
@@ -37,4 +33,14 @@
             app:argType="string" />
 
     </fragment>
+    <fragment
+        android:id="@+id/episodeFragment"
+        android:name="com.example.breakingbad.ui.fragment.episode.EpisodeFragment"
+        android:label="fragment_episode"
+        tools:layout="@layout/fragment_episode" />
+    <fragment
+        android:id="@+id/deathFragment"
+        android:name="com.example.breakingbad.ui.fragment.death.DeathFragment"
+        android:label="fragment_death"
+        tools:layout="@layout/fragment_death" />
 </navigation>

@@ -9,10 +9,11 @@
         android:icon="@drawable/character_icon"
         android:title="Characters" />
     <item
+        android:id="@id/deathFragment"
         android:icon="@drawable/deth_icon"
         android:title="Death" />
     <item
-        android:id="@+id/episodesFragment"
+        android:id="@+id/episodeFragment"
         android:icon="@drawable/episod_icon"
         android:title="Episode" />
 

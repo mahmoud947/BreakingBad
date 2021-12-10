@@ -17,7 +17,7 @@ class QuotesViewModel @Inject constructor(private val response: CharactersFragme
 
     fun getAllQuotes() {
         viewModelScope.launch {
-            quotesList.value = response.getAllQuote()
+            quotesList.postValue(response.getAllQuote())
         }
     }
 

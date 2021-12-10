@@ -27,7 +27,8 @@ class QuotesAdapter @Inject constructor() : RecyclerView.Adapter<QuotesAdapter.M
     fun setData(newList: ArrayList<Quote>) {
         val diffUtil = QuotesDiffUtil(oldList, newList)
         val diffResult = DiffUtil.calculateDiff(diffUtil)
-        oldList = newList
+        oldList.clear()
+        oldList.addAll(newList)
         diffResult.dispatchUpdatesTo(this)
     }
 

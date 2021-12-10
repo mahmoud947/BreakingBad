@@ -16,5 +16,9 @@ class QuotesDiffUtil(
         oldList[oldItemPosition].quote_id == newList[newItemPosition].quote_id
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-        oldList == newList
+        oldList[oldItemPosition] == newList[newItemPosition]
+
+    override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
+        return super.getChangePayload(oldItemPosition, newItemPosition)
+    }
 }

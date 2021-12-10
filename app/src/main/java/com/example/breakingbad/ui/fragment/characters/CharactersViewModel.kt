@@ -14,7 +14,6 @@ import javax.inject.Inject
 class CharactersViewModel @Inject constructor(private val repository: CharactersFragmentRepository) :
     ViewModel() {
         var characterList:MutableLiveData<ArrayList<Character>> = MutableLiveData()
-
     fun getAllCharacter() {
         viewModelScope.launch {
             val response: ArrayList<Character> = repository.getAllCharacters()

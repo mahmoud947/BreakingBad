@@ -16,10 +16,12 @@
         <entry key="..\:/BreakingBad/app/src/main/res/drawable/toolbar_gradient.xml" value="0.2338815789473684" />
         <entry key="..\:/BreakingBad/app/src/main/res/drawable/yellow_line.xml" value="0.2338815789473684" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/activity_main.xml" value="0.2236842105263158" />
-        <entry key="..\:/BreakingBad/app/src/main/res/layout/activity_main_view.xml" value="0.25" />
+        <entry key="..\:/BreakingBad/app/src/main/res/layout/activity_main_view.xml" value="0.1" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/activity_splash_screen.xml" value="0.2236842105263158" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_character_info.xml" value="0.14" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_characters.xml" value="0.2" />
+        <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_death.xml" value="0.21994535519125682" />
+        <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_episode.xml" value="0.21994535519125682" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_episodes.xml" value="0.12302631578947368" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_home.xml" value="0.2236842105263158" />
         <entry key="..\:/BreakingBad/app/src/main/res/layout/fragment_quotes.xml" value="0.18" />

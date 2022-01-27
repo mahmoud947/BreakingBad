@@ -42,6 +42,10 @@ class QuotesFragment : Fragment(R.layout.fragment_quotes) {
             })
         } else {
             quotesAdapter.setData(Constant.quoteList)
+            viewModel.getAllQuotes()
+            viewModel.quotesList.observe(viewLifecycleOwner, Observer { quotes->
+                quotesAdapter.setData(quotes)
+            })
         }
 
 

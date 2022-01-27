@@ -6,8 +6,11 @@ import android.widget.SearchView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.FragmentCharactersBinding
@@ -19,9 +22,13 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
-    private val viewModel: CharactersViewModel by viewModels()
+//    private val navViewModle:CharactersViewModel by navGraphViewModels(R.id.nav_graph) {
+//        SavedStateViewModelFactory(requireActivity().application, requireParentFragment())
+//    }
+    private val viewModel: CharactersViewModel  by hiltNavGraphViewModels(R.id.nav_graph)
     private var _binding: FragmentCharactersBinding?=null
     private val binding get() = _binding!!
+    private val myList:ArrayList<Character> = ArrayList()
 
     @Inject
     lateinit var adapterChar: CharacterAdapter
@@ -48,19 +55,25 @@ class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
             adapterChar.setOnClickInterFace(this)
         }else{
             adapterChar.setData(Constant.characterList)
+            viewModel.getAllCharacter()
+            viewModel.characterList.observe(viewLifecycleOwner, Observer { characters->
+                adapterChar.setData(characters)
+            })
+            adapterChar.setOnClickInterFace(this)
         }
-
-
 
 
         return binding.root
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding=null
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.listState=binding.rvCharacters.layoutManager?.onSaveInstanceState()
     }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        _binding=null
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.toolbar, menu)
@@ -78,9 +91,13 @@ class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
                 }
                 return false
             }
-
-
         })
+
+        if (viewModel.listState!=null){
+            binding.rvCharacters.layoutManager?.onRestoreInstanceState(viewModel.listState)
+            viewModel.listState=null
+        }
+
 
     }
 
@@ -89,4 +106,6 @@ class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
             CharactersFragmentDirections.actionCharactersFragmentToCharacterInfoFragment(character.char_id,character.name)
         findNavController().navigate(action)
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.example.breakingbad.ui.fragment.characters
 
-import androidx.lifecycle.LiveData
+import android.os.Parcelable
+import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CharactersViewModel @Inject constructor(private val repository: CharactersFragmentRepository) :
     ViewModel() {
-        var characterList:MutableLiveData<ArrayList<Character>> = MutableLiveData()
+    var listState: Parcelable? = null;
+    var characterList: MutableLiveData<ArrayList<Character>> = MutableLiveData()
     fun getAllCharacter() {
         viewModelScope.launch {
             val response: ArrayList<Character> = repository.getAllCharacters()

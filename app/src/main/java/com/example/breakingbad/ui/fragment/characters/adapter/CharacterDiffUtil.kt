@@ -15,5 +15,5 @@ class CharacterDiffUtil(
         oldList[oldItemPosition].char_id == newList[newItemPosition].char_id
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-        oldList != newList
+        oldList[oldItemPosition] == newList[newItemPosition]
 }

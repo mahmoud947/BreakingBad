@@ -22,9 +22,10 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:saveEnabled="true"
         android:layout_below="@id/toolbar"
+        android:saveEnabled="true"
         app:defaultNavHost="true"
+
         app:navGraph="@navigation/nav_graph" />
 
 
@@ -36,6 +37,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/black"
         android:fitsSystemWindows="true"
+
         app:itemIconTint="#FFE600"
         app:menu="@menu/main_bottom_navigation" />
 </RelativeLayout>

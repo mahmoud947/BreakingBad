@@ -41,8 +41,8 @@ class CharacterAdapter @Inject constructor() :
         val diffResult = DiffUtil.calculateDiff(diffUtil)
         if (myListRef.isEmpty())
             myListRef = newList
-
-        oldList = newList
+        oldList.clear()
+        oldList.addAll(newList)
         diffResult.dispatchUpdatesTo(this)
     }
 

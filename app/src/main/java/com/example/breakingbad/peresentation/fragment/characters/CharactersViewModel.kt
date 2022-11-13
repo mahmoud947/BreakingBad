@@ -17,7 +17,7 @@ class CharactersViewModel @Inject constructor(private val repository: Repository
     var characterList: MutableLiveData<ArrayList<CharacterDto>> = MutableLiveData()
     fun getAllCharacter() {
         viewModelScope.launch {
-            val response: ArrayList<CharacterDto> = repository.getAllCharacters()
+            val response: ArrayList<CharacterDto> = repository.getCharacters()
             characterList.value = response
         }
     }

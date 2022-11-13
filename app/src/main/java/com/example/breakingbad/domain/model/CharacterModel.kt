@@ -1,9 +1,7 @@
 package com.example.breakingbad.domain.model
 
-import androidx.room.Entity
 
-@Entity
-data class Character(
+data class CharacterModel(
     val appearance: List<Any>,
     val better_call_saul_appearance: List<Int>,
     val birthday: String,

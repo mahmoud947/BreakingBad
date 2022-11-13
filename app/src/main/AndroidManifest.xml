@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BreakingBad">
         <activity
-            android:name=".ui.activity.splashScreen.SplashScreenActivity"
+            android:name=".peresentation.activity.splashScreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.mainView.MainViewActivity"/>
+        <activity android:name=".peresentation.activity.mainView.MainViewActivity"/>
     </application>
 
 </manifest>

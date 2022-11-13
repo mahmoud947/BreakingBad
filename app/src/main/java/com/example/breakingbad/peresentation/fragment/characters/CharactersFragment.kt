@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.characters
+package com.example.breakingbad.peresentation.fragment.characters
 
 import android.os.Bundle
 import android.view.*
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.FragmentCharactersBinding
 import com.example.breakingbad.data.data_source.remote.dto.CharacterDto
-import com.example.breakingbad.ui.fragment.characters.adapter.CharacterAdapter
+import com.example.breakingbad.peresentation.fragment.characters.adapter.CharacterAdapter
 import com.example.breakingbad.util.Constant
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

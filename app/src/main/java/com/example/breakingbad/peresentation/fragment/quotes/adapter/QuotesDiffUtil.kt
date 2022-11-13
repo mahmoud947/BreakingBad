@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.quotes.adapter
+package com.example.breakingbad.peresentation.fragment.quotes.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.breakingbad.data.data_source.remote.dto.QuoteDto

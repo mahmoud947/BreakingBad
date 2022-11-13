@@ -1,17 +1,17 @@
-package com.example.breakingbad.ui.fragment.character_info
+package com.example.breakingbad.peresentation.fragment.character_info
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.breakingbad.data.data_source.remote.dto.CharacterDto
-import com.example.breakingbad.repository.CharactersFragmentRepository
+import com.example.breakingbad.data.repository.RepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class CharacterProfileViewModel @Inject constructor(
-    private val repository: CharactersFragmentRepository,
+    private val repository: RepositoryImpl,
 ) : ViewModel() {
     var character: MutableLiveData<ArrayList<CharacterDto>> = MutableLiveData()
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFE600"
-    tools:context=".ui.activity.splashScreen.SplashScreenActivity">
+    tools:context=".peresentation.activity.splashScreen.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/iv_logo_walter"

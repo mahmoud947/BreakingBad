@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.character_info
+package com.example.breakingbad.peresentation.fragment.character_info
 
 import android.annotation.SuppressLint
 import android.os.Bundle

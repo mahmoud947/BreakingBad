@@ -8,7 +8,7 @@
     maintainBackstack="true">
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.example.breakingbad.ui.fragment.characters.CharactersFragment"
+        android:name="com.example.breakingbad.peresentation.fragment.characters.CharactersFragment"
         android:label="Characters"
         tools:layout="@layout/fragment_characters" >
         <action
@@ -17,12 +17,12 @@
     </fragment>
     <fragment
         android:id="@+id/quotesFragment"
-        android:name="com.example.breakingbad.ui.fragment.quotes.QuotesFragment"
+        android:name="com.example.breakingbad.peresentation.fragment.quotes.QuotesFragment"
         android:label="Quotes"
         tools:layout="@layout/fragment_quotes" />
     <fragment
         android:id="@+id/characterInfoFragment"
-        android:name="com.example.breakingbad.ui.fragment.character_info.CharacterInfoFragment"
+        android:name="com.example.breakingbad.peresentation.fragment.character_info.CharacterInfoFragment"
         android:label="{char_name}"
         tools:layout="@layout/fragment_character_info" >
         <argument
@@ -35,12 +35,12 @@
     </fragment>
     <fragment
         android:id="@+id/episodeFragment"
-        android:name="com.example.breakingbad.ui.fragment.episode.EpisodeFragment"
+        android:name="com.example.breakingbad.peresentation.fragment.episode.EpisodeFragment"
         android:label="fragment_episode"
         tools:layout="@layout/fragment_episode" />
     <fragment
         android:id="@+id/deathFragment"
-        android:name="com.example.breakingbad.ui.fragment.death.DeathFragment"
+        android:name="com.example.breakingbad.peresentation.fragment.death.DeathFragment"
         android:label="fragment_death"
         tools:layout="@layout/fragment_death" />
 </navigation>

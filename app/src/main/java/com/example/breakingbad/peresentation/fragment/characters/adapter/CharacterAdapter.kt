@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.characters.adapter
+package com.example.breakingbad.peresentation.fragment.characters.adapter
 
 import android.util.Log
 import android.view.LayoutInflater

@@ -1,18 +1,14 @@
-package com.example.breakingbad.ui.activity.splashScreen
+package com.example.breakingbad.peresentation.activity.splashScreen
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.graphics.Color
-import androidx.core.os.HandlerCompat.postDelayed
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.ActivitySplashScreenBinding
-import com.example.breakingbad.ui.activity.mainView.MainViewActivity
+import com.example.breakingbad.peresentation.activity.mainView.MainViewActivity
 import com.example.breakingbad.util.Constant.Companion.SPLASH_SCREEN_TIME_OUT
 import dagger.hilt.android.AndroidEntryPoint
 

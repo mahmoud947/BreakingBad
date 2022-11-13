@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.characters.adapter
+package com.example.breakingbad.peresentation.fragment.characters.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.breakingbad.data.data_source.remote.dto.CharacterDto

@@ -1,21 +1,15 @@
-package com.example.breakingbad.ui.activity.mainView
+package com.example.breakingbad.peresentation.activity.mainView
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.ActivityMainViewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main_view.*
-import okhttp3.internal.wait
 
 @AndroidEntryPoint
 class MainViewActivity : AppCompatActivity() {

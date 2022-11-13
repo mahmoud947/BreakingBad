@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.characters
+package com.example.breakingbad.peresentation.fragment.characters
 
 import android.os.Parcelable
 import androidx.lifecycle.ViewModel

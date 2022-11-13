@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.quotes.adapter
+package com.example.breakingbad.peresentation.fragment.quotes.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.example.breakingbad.ui.fragment.quotes
+package com.example.breakingbad.peresentation.fragment.quotes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.FragmentQuotesBinding
 import com.example.breakingbad.data.data_source.remote.dto.QuoteDto
-import com.example.breakingbad.ui.fragment.quotes.adapter.QuotesAdapter
+import com.example.breakingbad.peresentation.fragment.quotes.adapter.QuotesAdapter
 import com.example.breakingbad.util.Constant
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

@@ -1,5 +1,6 @@
 package com.example.breakingbad.ui.activity.splashScreen
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -15,6 +16,7 @@ import com.example.breakingbad.ui.activity.mainView.MainViewActivity
 import com.example.breakingbad.util.Constant.Companion.SPLASH_SCREEN_TIME_OUT
 import dagger.hilt.android.AndroidEntryPoint
 
+@SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

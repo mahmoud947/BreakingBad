@@ -1,7 +1,6 @@
 package com.example.breakingbad.ui.fragment.character_info
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +11,14 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.FragmentCharacterInfoBinding
-import com.example.breakingbad.model.Character
+import com.example.breakingbad.data.data_source.remote.dto.CharacterDto
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CharacterInfoFragment : Fragment() {
     lateinit var binding: FragmentCharacterInfoBinding
     private val args: CharacterInfoFragmentArgs by navArgs()
-    private lateinit var characters: ArrayList<Character>
+    private lateinit var characters: ArrayList<CharacterDto>
     private val viewModel: CharacterProfileViewModel by viewModels()
 
     @SuppressLint("CheckResult", "ResourceAsColor")

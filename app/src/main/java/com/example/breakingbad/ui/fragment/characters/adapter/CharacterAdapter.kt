@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.breakingbad.R
 import com.example.breakingbad.databinding.ItemCharacterRowBinding
-import com.example.breakingbad.model.Character
+import com.example.breakingbad.data.data_source.remote.dto.CharacterDto
 import javax.inject.Inject
 
 class CharacterAdapter @Inject constructor() :
     RecyclerView.Adapter<CharacterAdapter.MyViewHolder>(), Filterable {
-    private var oldList: ArrayList<Character> = ArrayList()
-    private var myListRef: ArrayList<Character> = ArrayList()
+    private var oldList: ArrayList<CharacterDto> = ArrayList()
+    private var myListRef: ArrayList<CharacterDto> = ArrayList()
     private lateinit var listener: OnItemClickListener
 
     override fun onCreateViewHolder(
@@ -36,7 +36,7 @@ class CharacterAdapter @Inject constructor() :
 
     override fun getItemCount(): Int = oldList.size
 
-    fun setData(newList: ArrayList<Character>) {
+    fun setData(newList: ArrayList<CharacterDto>) {
         val diffUtil = CharacterDiffUtil(oldList, newList)
         val diffResult = DiffUtil.calculateDiff(diffUtil)
         if (myListRef.isEmpty())
@@ -52,7 +52,7 @@ class CharacterAdapter @Inject constructor() :
 
     inner class MyViewHolder(private val binding: ItemCharacterRowBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-        fun bind(character: Character) {
+        fun bind(character: CharacterDto) {
             binding.apply {
                 ivItem.load(character.img) {
                     placeholder(R.drawable.walter_logo)
@@ -71,19 +71,19 @@ class CharacterAdapter @Inject constructor() :
 
         override fun onClick(p0: View?) {
             var position = bindingAdapterPosition
-            var character: Character = oldList[position]
+            var character: CharacterDto = oldList[position]
             listener.onItemClick(position, character, binding.root)
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int, character: Character, binding: CardView)
+        fun onItemClick(position: Int, character: CharacterDto, binding: CardView)
     }
 
     override fun getFilter(): android.widget.Filter {
         return object : android.widget.Filter() {
             override fun performFiltering(p0: CharSequence?): FilterResults {
-                var filteredList: ArrayList<Character> = ArrayList()
+                var filteredList: ArrayList<CharacterDto> = ArrayList()
                 if (p0.toString().isEmpty() || p0.toString().equals("")) {
                     filteredList = myListRef
                     Log.i("filters", myListRef.size.toString())
@@ -103,7 +103,7 @@ class CharacterAdapter @Inject constructor() :
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
                 if (p1 != null) {
-                    setData(p1.values as ArrayList<Character>)
+                    setData(p1.values as ArrayList<CharacterDto>)
                 }
             }
 

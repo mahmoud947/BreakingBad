@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingbad.databinding.ItemQuotesRowBinding
-import com.example.breakingbad.model.Quote
+import com.example.breakingbad.data.data_source.remote.dto.QuoteDto
 import javax.inject.Inject
 
 class QuotesAdapter @Inject constructor() : RecyclerView.Adapter<QuotesAdapter.MyViewHolder>() {
-    private var oldList: ArrayList<Quote> = ArrayList()
-    private var myListRef: ArrayList<Quote> = ArrayList()
+    private var oldList: ArrayList<QuoteDto> = ArrayList()
+    private var myListRef: ArrayList<QuoteDto> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuotesAdapter.MyViewHolder =
         MyViewHolder(ItemQuotesRowBinding.inflate(LayoutInflater.from(parent.context),
@@ -24,7 +24,7 @@ class QuotesAdapter @Inject constructor() : RecyclerView.Adapter<QuotesAdapter.M
 
     override fun getItemCount() = oldList.size
 
-    fun setData(newList: ArrayList<Quote>) {
+    fun setData(newList: ArrayList<QuoteDto>) {
         val diffUtil = QuotesDiffUtil(oldList, newList)
         val diffResult = DiffUtil.calculateDiff(diffUtil)
         oldList.clear()
@@ -34,7 +34,7 @@ class QuotesAdapter @Inject constructor() : RecyclerView.Adapter<QuotesAdapter.M
 
     inner class MyViewHolder(private val binding: ItemQuotesRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(quotes: Quote) {
+        fun bind(quotes: QuoteDto) {
             binding.tvItemQuoteQuotes.text = quotes.quote
             binding.tvItemAuthorQoutes.text = quotes.author
         }

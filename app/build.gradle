@@ -125,4 +125,6 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
     implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
     kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+
+    implementation "com.github.armcha:ElasticView:0.2.0"
 }

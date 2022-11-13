@@ -1,18 +1,18 @@
 package com.example.breakingbad.repository
 
-import com.example.breakingbad.api.BreakingBadApi
+import com.example.breakingbad.data.data_source.remote.RemoteDataSource
 import javax.inject.Inject
 
 class CharactersFragmentRepository @Inject constructor(
-    private val breakingBadApi: BreakingBadApi,
+    private val breakingBadApi: RemoteDataSource,
 ) {
 
     suspend fun getAllCharacters() =
-        breakingBadApi.getAllCharacters()
+        breakingBadApi.getCharacters()
 
      suspend fun getCharacterById(charID: Int) =
         breakingBadApi.getCharacterById(charID)
 
     suspend fun getAllQuote() =
-        breakingBadApi.getAllQuotes()
+        breakingBadApi.getQuotes()
 }

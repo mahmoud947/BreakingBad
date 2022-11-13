@@ -1,11 +1,11 @@
 package com.example.breakingbad.ui.fragment.characters.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.breakingbad.model.Character
+import com.example.breakingbad.data.data_source.remote.dto.CharacterDto
 
 class CharacterDiffUtil(
-    private val oldList: ArrayList<Character>,
-    private val newList: ArrayList<Character>,
+    private val oldList: ArrayList<CharacterDto>,
+    private val newList: ArrayList<CharacterDto>,
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 

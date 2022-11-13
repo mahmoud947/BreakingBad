@@ -58,6 +58,7 @@ fun List<CharacterDto>.toEntity() = map {
     it.toEntity()
 }
 
+
 fun QuoteDto.toEntity(): QuoteEntity = QuoteEntity(
     author = this.author,
     quote = this.quote,

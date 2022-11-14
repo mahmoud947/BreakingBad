@@ -7,26 +7,25 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.breakingbad.R
-import com.example.breakingbad.databinding.FragmentCharactersBinding
 import com.example.breakingbad.data.data_source.remote.dto.CharacterDto
+import com.example.breakingbad.databinding.FragmentCharactersBinding
+import com.example.breakingbad.domain.model.CharacterModel
 import com.example.breakingbad.peresentation.fragment.characters.adapter.CharacterAdapter
-import com.example.breakingbad.util.Constant
+import com.example.breakingbad.peresentation.fragment.characters.view_model.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
+class CharactersFragment : Fragment() {
 
-    private val viewModel: CharactersViewModel  by hiltNavGraphViewModels(R.id.nav_graph)
-    private var _binding: FragmentCharactersBinding?=null
-    private val binding get() = _binding!!
-    private val myList:ArrayList<CharacterDto> = ArrayList()
-
-    @Inject
+    private val viewModel: CharactersViewModel by hiltNavGraphViewModels(R.id.nav_graph)
+    private lateinit var binding: FragmentCharactersBinding
     lateinit var adapterChar: CharacterAdapter
+    lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,45 +33,41 @@ class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
     ): View {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        _binding = FragmentCharactersBinding.inflate(inflater, container, false)
+        binding = FragmentCharactersBinding.inflate(inflater)
+        navController = findNavController()
+        adapterChar = CharacterAdapter(
+            CharacterAdapter.CharacterOnClickListener {
+            navController.navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterInfoFragment(it,it.name))
+            }
+        )
 
         binding.rvCharacters.apply {
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = adapterChar
         }
-        if (Constant.characterList.isEmpty()){
-            viewModel.getAllCharacter()
-            viewModel.characterList.observe(viewLifecycleOwner, Observer {  characters ->
-                Constant.characterList=characters
-                adapterChar.setData(Constant.characterList)
-            })
-            adapterChar.setOnClickInterFace(this)
-        }else{
-            adapterChar.setData(Constant.characterList)
-            viewModel.getAllCharacter()
-            viewModel.characterList.observe(viewLifecycleOwner, Observer { characters->
-                adapterChar.setData(characters)
-            })
-            adapterChar.setOnClickInterFace(this)
-        }
-        if (viewModel.listState!=null){
-            binding.rvCharacters.layoutManager?.onRestoreInstanceState(viewModel.listState)
-            viewModel.listState=null
+        viewModel.getAllCharacter()
+
+        binding.rvCharacters.layoutManager?.onRestoreInstanceState(viewModel.listState)
+        viewModel.state.observe(viewLifecycleOwner) { state->
+            when(state){
+                is CharacterFragmentState.ShowData->{
+                    val characters = ArrayList<CharacterModel>()
+
+                    characters.addAll(state.characters)
+                    adapterChar.setData(characters)
+                }
+            }
+
         }
 
         return binding.root
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.listState=binding.rvCharacters.layoutManager?.onSaveInstanceState()
+        viewModel.listState = binding.rvCharacters.layoutManager?.onSaveInstanceState()
     }
-
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        _binding=null
-//    }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.toolbar, menu)
@@ -92,15 +87,7 @@ class CharactersFragment : Fragment(), CharacterAdapter.OnItemClickListener {
             }
         })
 
-
-
-
     }
 
-    override fun onItemClick(position: Int, character: CharacterDto, binding: CardView) {
-        val action =
-            CharactersFragmentDirections.actionCharactersFragmentToCharacterInfoFragment(character.char_id,character.name)
-        findNavController().navigate(action)
-    }
 
 }

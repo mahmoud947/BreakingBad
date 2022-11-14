@@ -1,68 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="280dp"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="character"
+            type="com.example.breakingbad.domain.model.CharacterModel" />
+
+        <variable
+            name="clickListener"
+            type="com.example.breakingbad.peresentation.fragment.characters.adapter.CharacterAdapter.CharacterOnClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/iv_item"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:background="@drawable/character_rec"
-            android:cropToPadding="true"
-            android:padding="2dp"
-            android:scaleType="centerCrop" />
+            android:onClick="@{()->clickListener.onClick(character)}">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/characters_gradient" />
+            <ImageView
+                android:id="@+id/iv_item"
+                setImage="@{character.img}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/character_rec"
+                android:contentDescription="TODO"
+                android:cropToPadding="true"
+                android:padding="2dp"
+                android:scaleType="centerCrop" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/characters_gradient" />
 
-            <TextView
-                android:id="@+id/tv_item_char_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:drawableStart="@drawable/ic_baseline_person_24"
-                android:drawablePadding="4dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="username"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_item_char_nic_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:drawableStart="@drawable/ic_baseline_star_24"
-                android:drawablePadding="4dp"
-                android:gravity="center"
-                android:text="nicname"
-                android:textColor="@color/white"
+                <TextView
+                    android:id="@+id/tv_item_char_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@{character.name}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_baseline_person_24"
+                    tools:text="name" />
 
-                android:textSize="12sp"
-                android:textStyle="normal" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_item_char_nic_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="@{character.nickname}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                    tools:text="nickname" />
+            </LinearLayout>
 
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

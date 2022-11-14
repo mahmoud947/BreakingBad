@@ -1,6 +1,10 @@
 package com.example.breakingbad.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+
+@Parcelize
 data class CharacterModel(
     val appearance: List<Int>,
     val better_call_saul_appearance: List<Int>,
@@ -13,4 +17,4 @@ data class CharacterModel(
     val occupation: List<String>,
     val portrayed: String,
     val status: String
-)
+):Parcelable

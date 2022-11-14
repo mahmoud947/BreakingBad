@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    maintainBackstack="true"
     android:label="Characters"
-    app:startDestination="@id/charactersFragment"
-    maintainBackstack="true">
+    app:startDestination="@id/charactersFragment">
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.example.breakingbad.peresentation.fragment.characters.CharactersFragment"
         android:label="Characters"
-        tools:layout="@layout/fragment_characters" >
+        tools:layout="@layout/fragment_characters">
         <action
             android:id="@+id/action_charactersFragment_to_characterInfoFragment"
             app:destination="@id/characterInfoFragment" />
@@ -23,14 +23,15 @@
     <fragment
         android:id="@+id/characterInfoFragment"
         android:name="com.example.breakingbad.peresentation.fragment.character_info.CharacterInfoFragment"
-        android:label="{char_name}"
-        tools:layout="@layout/fragment_character_info" >
+        android:label="{character_name}"
+        tools:layout="@layout/fragment_character_info">
         <argument
-            android:name="char_id"
-            app:argType="integer" />
+            android:name="character"
+            app:argType="com.example.breakingbad.domain.model.CharacterModel" />
         <argument
-            android:name="char_name"
+            android:name="character_name"
             app:argType="string" />
+
 
     </fragment>
     <fragment

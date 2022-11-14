@@ -1,14 +1,16 @@
 package com.example.breakingbad.data.data_source.local.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class CharacterEntity(
-    val appearance: List<Any>,
+    @PrimaryKey
+    val char_id: Int,
+    val appearance: List<Int>,
     val better_call_saul_appearance: List<Int>,
     val birthday: String,
     val category: String,
-    val char_id: Int,
     val img: String,
     val name: String,
     val nickname: String,

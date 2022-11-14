@@ -14,13 +14,13 @@ interface CharactersDao {
     suspend fun insertCharacters(vararg characterEntity: CharacterEntity)
 
     @Query("SELECT * FROM CharacterEntity")
-    suspend fun getCharacters(): Flow<List<CharacterEntity>>
+     fun getCharacters(): Flow<List<CharacterEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertQuotes(vararg quoteEntity: QuoteEntity)
 
     @Query("SELECT * FROM QuoteEntity")
-    suspend fun getQuotes(): Flow<List<QuoteEntity>>
+     fun getQuotes(): Flow<List<QuoteEntity>>
 
     @Query("DELETE FROM CharacterEntity")
     suspend fun clear()

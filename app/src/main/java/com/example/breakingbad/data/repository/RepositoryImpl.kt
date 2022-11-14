@@ -8,7 +8,7 @@ import com.example.breakingbad.domain.repository.Repository
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class RepositoryImpl @Inject constructor(
+class RepositoryImpl(
     private val api: RemoteDataSource,
     private val dao: CharactersDao
 ) : Repository {

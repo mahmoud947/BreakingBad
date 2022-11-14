@@ -2,7 +2,7 @@ package com.example.breakingbad.domain.model
 
 
 data class CharacterModel(
-    val appearance: List<Any>,
+    val appearance: List<Int>,
     val better_call_saul_appearance: List<Int>,
     val birthday: String,
     val category: String,

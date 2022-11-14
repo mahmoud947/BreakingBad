@@ -1,7 +1,7 @@
 package com.example.breakingbad.data.data_source.remote.dto
 
 data class CharacterDto(
-    val appearance: List<Any>,
+    val appearance: List<Int>,
     val better_call_saul_appearance: List<Int>,
     val birthday: String,
     val category: String,

@@ -10,252 +10,312 @@
             type="com.example.breakingbad.domain.model.CharacterModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
         tools:context=".peresentation.fragment.character_info.CharacterInfoFragment">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="195dp"
+            android:layout_height="400dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iv_character_cover"
-                setCoverPicture="@{character.img}"
-                android:src="@drawable/rjwhiter"
-                android:scaleType="centerCrop"
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/motion_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="TODO" />
+                android:minHeight="80dp"
+                app:layoutDescription="@xml/fragment_character_info_scene"
+                app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed"
+                app:motionDebug="SHOW_PATH"
+                app:showPaths="true">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="106dp"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/characters_gradient" />
 
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/iv_character_cover"
+                    setCoverPicture="@{character.img}"
+                    android:layout_width="0dp"
+                    android:layout_height="1000dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/rjwhiter" />
 
-        <ImageView
-            android:id="@+id/iv_character_profile"
-            setProfilePicture="@{character.img}"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="16dp"
-            android:cropToPadding="true"
-            android:foreground="@drawable/character_cir"
-            android:padding="1dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/tv_character_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="TODO" />
+                <View
+                    android:id="@+id/gradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:alpha="0.0"
+                    android:background="@drawable/characters_gradient"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_character_birthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="92dp"
-            android:drawablePadding="8dp"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text="@{character.birthday}"
-            android:textAlignment="center"
-            android:textColor="#727272"
-            app:drawableStartCompat="@drawable/ic_baseline_calendar_today_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/iv_character_profile"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_bias="0.142" />
 
-        <TextView
-            android:id="@+id/tv_character_name"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text="@{character.name}"
-            android:textColor="@color/white"
-            android:textSize="21sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tv_character_nickname"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_character_profile" />
+                <TextView
+                    android:id="@+id/tv_character_name"
+                    setCharacterName="@{character}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="16dp"
 
-        <TextView
-            android:id="@+id/tv_character_nickname"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text="@{character.nickname}"
+                    android:textAlignment="center"
+                    android:textColor="#B8B8B8"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="nickname" />
 
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_character_name" />
 
-        <TextView
+                <TextView
+                    android:id="@+id/tv_character_nickName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{character.nickname}"
+                    android:textColor="#B8B8B8"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    tools:text="nickname" />
+
+                <ImageView
+                    android:id="@+id/iv_character_profile"
+                    setProfilePicture="@{character.img}"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_margin="15dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="fitXY"
+                    tools:src="@drawable/rjwhiter" />
+
+
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/yellow_line"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_character_nickname" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-<!--        <androidx.core.widget.NestedScrollView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginTop="400dp"-->
-<!--            android:layout_marginBottom="55dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="1.0"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/tv_character_nickname">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical">
 
-<!--            <LinearLayout-->
-<!--                android:id="@+id/linearLayout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="left"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="4dp">-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Name:" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Occupation:"-->
-<!--                        android:textColor="@color/yellow"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@{character.name}"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Name:" />
+                </LinearLayout>
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_character_info_occupation"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="2dp"-->
 
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp" />-->
-<!--                </LinearLayout>-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="4dp">-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nickname"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Nickname:" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Nickname:"-->
-<!--                        android:textColor="@color/yellow"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@{character.nickname}"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="nickName" />
+                </LinearLayout>
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_character_info_nickname"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="2dp"-->
 
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp" />-->
-<!--                </LinearLayout>-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="4dp">-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/birthday"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Birthday:" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Status:"-->
-<!--                        android:textColor="@color/yellow"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:drawablePadding="8dp"
+                        android:text="@{character.birthday}"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        app:drawableEndCompat="@drawable/ic_baseline_calendar_today_24"
+                        tools:text="2/10/2002" />
+                </LinearLayout>
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_character_info_status"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="2dp"-->
-<!--                        android:textColor="@color/green"-->
-<!--                        android:textSize="18sp" />-->
-<!--                </LinearLayout>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="4dp">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Apperance:"-->
-<!--                        android:textColor="@color/yellow"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Status:" />
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_character_info_apperance"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="2dp"-->
+                    <TextView
+                        setStatus="@{character.status}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Presumed dead" />
+                </LinearLayout>
 
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp" />-->
-<!--                </LinearLayout>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="4dp">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Portrayed:"-->
-<!--                        android:textColor="@color/yellow"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/appearance"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Appearance:" />
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_character_info_portrayed"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="2dp"-->
+                    <TextView
+                        setAppearance="@{character.appearance}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="appearance" />
+                </LinearLayout>
 
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp" />-->
-<!--                </LinearLayout>-->
 
-<!--            </LinearLayout>-->
-<!--        </androidx.core.widget.NestedScrollView>-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/portrayed"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Portrayed:" />
+
+                    <TextView
+                        setStatus="@{character.portrayed}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="portrayed" />
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/occupation"
+                        android:textColor="@color/yellow"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Occupation:" />
+
+                    <TextView
+                        setOccupation="@{character.occupation}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="#B8B8B8"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        tools:text="Occupation" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

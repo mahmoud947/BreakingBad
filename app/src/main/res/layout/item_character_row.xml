@@ -7,11 +7,11 @@
 
         <variable
             name="character"
-            type="com.example.breakingbad.domain.model.CharacterModel" />
+            type="com.example.breakingbad.characters_feature.domain.model.CharacterModel" />
 
         <variable
             name="clickListener"
-            type="com.example.breakingbad.peresentation.fragment.characters.adapter.CharacterAdapter.CharacterOnClickListener" />
+            type="com.example.breakingbad.characters_feature.peresentation.fragment.characters.adapter.CharacterAdapter.CharacterOnClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView

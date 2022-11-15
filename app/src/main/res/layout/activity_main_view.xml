@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".peresentation.activity.mainView.MainViewActivity">
+        tools:context=".characters_feature.peresentation.activity.mainView.MainViewActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

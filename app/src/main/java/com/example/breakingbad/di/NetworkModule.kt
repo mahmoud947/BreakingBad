@@ -1,7 +1,6 @@
 package com.example.breakingbad.di
 
-import com.example.breakingbad.data.data_source.remote.RemoteDataSource
-import com.example.breakingbad.util.Constant
+import com.example.breakingbad.core.util.Constant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,9 +21,5 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    @Provides
-    @Singleton
-    fun provideBreakingBadApi(): RemoteDataSource =
-        provideRetrofit().create(RemoteDataSource::class.java)
 
 }

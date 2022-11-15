@@ -7,14 +7,14 @@
 
         <variable
             name="character"
-            type="com.example.breakingbad.domain.model.CharacterModel" />
+            type="com.example.breakingbad.characters_feature.domain.model.CharacterModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        tools:context=".peresentation.fragment.character_info.CharacterInfoFragment">
+        tools:context=".characters_feature.peresentation.fragment.character_info.CharacterInfoFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"

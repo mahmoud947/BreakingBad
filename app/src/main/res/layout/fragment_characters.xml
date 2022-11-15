@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".peresentation.fragment.characters.CharactersFragment">
+    tools:context=".characters_feature.peresentation.fragment.characters.CharactersFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView

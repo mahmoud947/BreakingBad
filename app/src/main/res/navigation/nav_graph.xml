@@ -8,7 +8,7 @@
     app:startDestination="@id/charactersFragment">
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.example.breakingbad.peresentation.fragment.characters.CharactersFragment"
+        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.characters.CharactersFragment"
         android:label="Characters"
         tools:layout="@layout/fragment_characters">
         <action
@@ -17,17 +17,17 @@
     </fragment>
     <fragment
         android:id="@+id/quotesFragment"
-        android:name="com.example.breakingbad.peresentation.fragment.quotes.QuotesFragment"
+        android:name="com.example.breakingbad.quotes_feature.peresentaion.freagment.quotes.QuotesFragment"
         android:label="Quotes"
         tools:layout="@layout/fragment_quotes" />
     <fragment
         android:id="@+id/characterInfoFragment"
-        android:name="com.example.breakingbad.peresentation.fragment.character_info.CharacterInfoFragment"
+        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.character_info.CharacterInfoFragment"
         android:label="{character_name}"
         tools:layout="@layout/fragment_character_info">
         <argument
             android:name="character"
-            app:argType="com.example.breakingbad.domain.model.CharacterModel" />
+            app:argType="com.example.breakingbad.characters_feature.domain.model.CharacterModel" />
         <argument
             android:name="character_name"
             app:argType="string" />
@@ -36,12 +36,12 @@
     </fragment>
     <fragment
         android:id="@+id/episodeFragment"
-        android:name="com.example.breakingbad.peresentation.fragment.episode.EpisodeFragment"
+        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.episode.EpisodeFragment"
         android:label="fragment_episode"
         tools:layout="@layout/fragment_episode" />
     <fragment
         android:id="@+id/deathFragment"
-        android:name="com.example.breakingbad.peresentation.fragment.death.DeathFragment"
+        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.death.DeathFragment"
         android:label="fragment_death"
         tools:layout="@layout/fragment_death" />
 </navigation>

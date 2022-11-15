@@ -27,8 +27,6 @@ class CharactersViewModel @Inject constructor(
     private val _state: MutableLiveData<CharacterFragmentState> = MutableLiveData()
     val state: LiveData<CharacterFragmentState> get() = _state
 
-    val oldCharacters: MutableLiveData<ArrayList<CharacterDto>> = MutableLiveData()
-
     init {
         refresh()
     }
@@ -41,9 +39,8 @@ class CharactersViewModel @Inject constructor(
         }
     }
 
-    fun getAllCharacter() {
+    fun getAllCharacters() {
         viewModelScope.launch {
-            refreshCharactersUseCase()
             getCharactersUseCase().flowOn(Dispatchers.IO)
                 .collect { resource ->
                     when (resource) {

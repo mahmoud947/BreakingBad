@@ -19,7 +19,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -30,9 +30,7 @@
                 android:layout_height="match_parent"
                 android:minHeight="80dp"
                 app:layoutDescription="@xml/fragment_character_info_scene"
-                app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed"
-                app:motionDebug="SHOW_PATH"
-                app:showPaths="true">
+                app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
 
 
                 <ImageView
@@ -66,10 +64,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginBottom="16dp"
-
                     android:textAlignment="center"
                     android:textColor="#B8B8B8"
-                    android:textSize="28sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -84,15 +80,14 @@
                     android:layout_marginBottom="16dp"
                     android:text="@{character.nickname}"
                     android:textColor="#B8B8B8"
-                    android:textSize="32sp"
                     android:textStyle="bold"
                     tools:text="nickname" />
 
                 <ImageView
                     android:id="@+id/iv_character_profile"
                     setProfilePicture="@{character.img}"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
                     android:layout_margin="15dp"
                     android:contentDescription="TODO"
                     android:scaleType="fitXY"
@@ -256,8 +251,6 @@
                 </LinearLayout>
 
 
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -284,8 +277,6 @@
                         android:textStyle="bold"
                         tools:text="portrayed" />
                 </LinearLayout>
-
-
 
 
                 <LinearLayout

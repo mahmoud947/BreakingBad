@@ -6,15 +6,15 @@
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:id="@+id/iv_character_profile"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
             android:id="@+id/gradient"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:alpha="1.0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,14 +41,12 @@
             android:layout_marginBottom="16dp"
             android:layout_marginStart="32dp"
             android:alpha="1.0"
-            android:textColor="#B8B8B8"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/iv_character_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_character_profile">
             <CustomAttribute
                 app:attributeName="textSize"
-                app:customDimension="28sp" />
+                app:customDimension="14sp" />
         </Constraint>
     </ConstraintSet>
 
@@ -64,7 +62,7 @@
         <Constraint
             android:id="@+id/gradient"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="200dp"
             android:alpha="1.0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +79,7 @@
             app:layout_constraintStart_toStartOf="parent">
             <CustomAttribute
                 app:attributeName="textSize"
-                app:customDimension="20sp" />
+                app:customDimension="12sp" />
         </Constraint>
 
         <Constraint
@@ -89,14 +87,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-
             android:alpha="0.0"
             app:layout_constraintBottom_toBottomOf="@+id/iv_character_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_character_profile">
             <CustomAttribute
                 app:attributeName="textSize"
-                app:customDimension="12sp" />
+                app:customDimension="10sp" />
         </Constraint>
 
     </ConstraintSet>

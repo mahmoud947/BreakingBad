@@ -1,4 +1,4 @@
-package com.example.breakingbad.characters_feature.peresentation.fragment.characters.adapter
+package com.example.breakingbad.characters_feature.peresentation.fragment.favorite.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingbad.databinding.ItemCharacterRowBinding
 import com.example.breakingbad.characters_feature.domain.model.CharacterModel
-import com.example.breakingbad.characters_feature.peresentation.fragment.favorite.adapter.FavoriteCharacterDiffUtil
+import com.example.breakingbad.characters_feature.peresentation.fragment.characters.adapter.CharacterAdapter
 
-class CharacterAdapter (
-private val onClickListener: CharacterOnClickListener
+class FavoriteCharacterAdapter (
+private val onClickListener: CharacterAdapter.CharacterOnClickListener
 ) :
-    RecyclerView.Adapter<CharacterAdapter.MyViewHolder>(), Filterable {
+    RecyclerView.Adapter<FavoriteCharacterAdapter.MyViewHolder>(), Filterable {
     private var oldList: ArrayList<CharacterModel> = ArrayList()
     private var myListRef: ArrayList<CharacterModel> = ArrayList()
 
@@ -86,10 +86,5 @@ private val onClickListener: CharacterOnClickListener
         }
     }
 
-    class CharacterOnClickListener(val clickListener: ((character: CharacterModel) -> Unit)) {
-        fun onClick(character: CharacterModel) {
-            clickListener(character)
-        }
-    }
 
 }

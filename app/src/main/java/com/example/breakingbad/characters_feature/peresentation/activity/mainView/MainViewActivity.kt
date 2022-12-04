@@ -33,8 +33,7 @@ class MainViewActivity : AppCompatActivity() {
             setOf(
                 R.id.quotesFragment,
                 R.id.charactersFragment,
-                R.id.deathFragment,
-                R.id.episodeFragment
+                R.id.favoriteFragment,
             )
         )
 

@@ -16,5 +16,5 @@ data class CharacterEntity(
     val nickname: String,
     val occupation: List<String>,
     val portrayed: String,
-    val status: String
+    val status: String,
 )

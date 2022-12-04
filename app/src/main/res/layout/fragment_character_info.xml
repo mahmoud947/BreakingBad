@@ -8,6 +8,9 @@
         <variable
             name="character"
             type="com.example.breakingbad.characters_feature.domain.model.CharacterModel" />
+        <variable
+            name="viewModel"
+            type="com.example.breakingbad.characters_feature.peresentation.fragment.character_info.view_model.CharacterInfoViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -305,7 +308,19 @@
                         android:textStyle="bold"
                         tools:text="Occupation" />
                 </LinearLayout>
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:onClick="@{()->viewModel.addCharacterToFavorite(character)}"
+                    tools:background="@drawable/ic_baseline_favorite_24"
+                    setFavoriteButtonIcon="@{character}"
+                    android:contentDescription="TODO" />
             </LinearLayout>
+
+
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.view.View
 import android.view.animation.Animation
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -27,27 +28,37 @@ fun setAnimation(view: View, anim: Animation) {
 
 @SuppressLint("SetTextI18n")
 @BindingAdapter("setCharacterName")
-fun setCharacterName(textView: TextView, characterModel: CharacterModel) {
-    textView.text = "${characterModel.name} (${characterModel.nickname})"
+fun setCharacterName(textView: TextView, characterModel: CharacterModel?) {
+    textView.text = "${characterModel?.name} (${characterModel?.nickname})"
 }
 
 @BindingAdapter("setOccupation")
-fun setOccupation(textView: TextView, occupation: List<String>) {
-    occupation.forEach {
+fun setOccupation(textView: TextView, occupation: List<String?>?) {
+    textView.text = ""
+    occupation?.forEach {
         textView.append("${occupation.indexOf(it) + 1}- $it \n\n")
     }
 }
 
 @BindingAdapter("setAppearance")
-fun setAppearance(textView: TextView, appearance: List<Int>) {
-    appearance.forEach {
+fun setAppearance(textView: TextView, appearance: List<Int>?) {
+    textView.text = ""
+    appearance?.forEach {
         textView.append("season- $it \n\n")
     }
 }
 
+@SuppressLint("UseCompatLoadingForDrawables")
+@BindingAdapter("setFavoriteButtonIcon")
+fun setFavoriteButtonIcon(imageButton: ImageButton,characterModel: CharacterModel?){
+    characterModel?.let {
+        imageButton.background = imageButton.context.getDrawable(R.drawable.ic_baseline_favorite_24)
+    }
+
+}
 
 @BindingAdapter("setStatus")
-fun setStatus(textView: TextView, status: String) {
+fun setStatus(textView: TextView, status: String?) {
     textView.text = status
     if (status != "Alive") {
         textView.setTextColor(textView.context.getColor(R.color.read))
@@ -58,7 +69,7 @@ fun setStatus(textView: TextView, status: String) {
 
 @SuppressLint("CheckResult")
 @BindingAdapter("setImage")
-fun setImage(image: ImageView, url: String) {
+fun setImage(image: ImageView, url: String?) {
     val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
     Glide.with(image.context)
         .load(url)
@@ -71,7 +82,7 @@ fun setImage(image: ImageView, url: String) {
 
 @SuppressLint("CheckResult")
 @BindingAdapter("setProfilePicture")
-fun setProfilePicture(image: ImageView, url: String) {
+fun setProfilePicture(image: ImageView, url: String?) {
     val multi = MultiTransformation<Bitmap>(
         CropTransformation(300, 250, CropTransformation.CropType.TOP),
         CropCircleWithBorderTransformation(Utils.toDp(4), image.context.getColor(R.color.yellow)),
@@ -84,7 +95,7 @@ fun setProfilePicture(image: ImageView, url: String) {
 
 @SuppressLint("CheckResult")
 @BindingAdapter("setCoverPicture")
-fun setCoverPicture(image: ImageView, url: String) {
+fun setCoverPicture(image: ImageView, url: String?) {
     Glide.with(image.context)
         .load(url)
         .into(image)

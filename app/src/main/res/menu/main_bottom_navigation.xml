@@ -9,14 +9,9 @@
         android:icon="@drawable/character_icon"
         android:title="Characters" />
     <item
-        android:id="@id/deathFragment"
-        android:icon="@drawable/deth_icon"
-        android:title="Death" />
-    <item
-        android:id="@+id/episodeFragment"
-        android:icon="@drawable/episod_icon"
-        android:title="Episode" />
-
+        android:id="@id/favoriteFragment"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Favorite" />
 
 
 

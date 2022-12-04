@@ -35,13 +35,12 @@
 
     </fragment>
     <fragment
-        android:id="@+id/episodeFragment"
-        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.episode.EpisodeFragment"
-        android:label="fragment_episode"
-        tools:layout="@layout/fragment_episode" />
-    <fragment
-        android:id="@+id/deathFragment"
-        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.death.DeathFragment"
-        android:label="fragment_death"
-        tools:layout="@layout/fragment_death" />
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.breakingbad.characters_feature.peresentation.fragment.favorite.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_deathFragment_to_characterInfoFragment"
+            app:destination="@id/characterInfoFragment" />
+    </fragment>
 </navigation>

@@ -3,7 +3,11 @@
 # BreakingBad
 
 ## demo
-![demo](./art/videomov.mov)
+
+
+https://user-images.githubusercontent.com/65209396/220914628-2bbb0afa-8755-4c1b-88e7-c672e1e9f0d6.mp4
+
+
 
 
 ## Clean Architecture
